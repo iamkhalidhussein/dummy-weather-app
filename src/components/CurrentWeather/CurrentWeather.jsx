@@ -9,7 +9,7 @@ const CurrentWeather = ({data}) => {
                     <p className="city font-semibold text-[18px] m-0 ">{data.city}</p>
                     <p className="weather-description font-normal text-[14px] m-0">{data.weather[0].description}</p>
                 </div>
-                <img className="weather-icon w-[100px]" src={`../../../public/icons/${data.weather[0].icon}.png`} alt="weather" />
+                <img className="weather-icon w-[100px]" src={`/icons/${data.weather[0].icon}.png`} alt="weather" />
             </div>
             <div className="bottom flex justify-between items-center">
                 <p className="temperature font-semibold text-[50px] w-auto my-3 mx-0">{Math.round(data.main.temp)}°C</p>

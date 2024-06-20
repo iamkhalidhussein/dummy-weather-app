@@ -17,7 +17,7 @@ const Forecast = ({ data }) => {
                         <AccordionItemHeading>
                             <AccordionItemButton>
                                 <div className='daily-item bg-[#F5F5F5] rounded-2xl mb-5 flex gap-1 items-center text-[14px] py-3 pl-4 h-20'>
-                                    <img className='icon-small w-10' src={`../../../public/icons/${item.weather[0].icon}.png`} alt="wather" />
+                                    <img className='icon-small w-10' src={`/icons/${item.weather[0].icon}.png`} alt="wather" />
                                     <label className='day text-[#212121] font-semibold flex-1 text-[16px]'>{forecastDays[idx]}</label>
                                     <label className='description flex-1 text-right font-medium pr-3'>{item.weather[0].description}</label>
                                     <label className='min-max text-[#757575] pr-4'>{Math.round(item.main.temp_min)}°C / {Math.round(item.main.temp_max)}°C</label>
