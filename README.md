@@ -29,6 +29,7 @@ cd ./dummy-weather-app
 pnpm install
 
 4. Create a `.env` file in the root directory and add your OpenWeatherMap API key:
+
 VITE_GEO_API_URL = 'https://wft-geo-db.p.rapidapi.com/v1/geo';  
 VITE_WEATHER_API_URL = "https://api.openweathermap.org/data/2.5";
 VTIE_WEATHER_API_KEY = "840250e9429a7c759828d872aafcfab6";
