@@ -9,11 +9,11 @@ import {
 
 const WEEK_DAYS = ['Monday', 'Tuesday', 'wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-const Forecast = ({ data }) => {
+export const Forecast = ({ data }) => {
     const dayInWeek = new Date().getDate();
     const forecastDays = WEEK_DAYS.slice(dayInWeek, WEEK_DAYS.length).concat(WEEK_DAYS.slice(0, dayInWeek));
     
-    console.log(forecastDays)
+    // console.log(forecastDays)
     return (
         <div>
             <label className="title text-[23px] font-bold">Daily</label>
@@ -29,8 +29,6 @@ const Forecast = ({ data }) => {
         </div>
     );
 };
-
-export default Forecast;
 
 const AccordionWeatherItem = ({ item, day }) => {
     return (
