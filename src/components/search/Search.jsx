@@ -1,33 +1,35 @@
 import { useState } from 'react';
 import {AsyncPaginate} from 'react-select-async-paginate';
 import { GEO_API_URL, geoApiOptions } from './api';
+import PropTypes from 'prop-types';
 
-
-const Search = ({onSearchChange}) => {
+export const Search = ({ onSearchChange }) => {
     const [search, setSearch] = useState(null);
 
     const loadOptions = async (inputValue) => {
-        console.log(inputValue)
-        return await fetch(`${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, geoApiOptions)
-        .then((responce) => responce.json())
-        .then((responce) => {
+        try {
+            const responce = await fetch(`${GEO_API_URL}/cities?minPopulation=1000000&namePrefix=${inputValue}`, geoApiOptions);
+            const data = await responce.json();
+            
             return {
-                options: responce.data.map((city) => {
+                options: data.data.map((city) => {
                     return {
                         value: `${city.latitude} ${city.longitude}`,
                         label: `${city.name}, ${city.countryCode}`
                     }
                 })
-            }
-            // console.log(responce)
-        })
-        .catch((err) => console.error(err))
+            };
+        } catch (error) {
+            console.error('error while fetching data', error);
+            return { options: [] };
+        }
     }
 
     const handleOnChange = (searchData) => {
         setSearch(searchData);
         onSearchChange(searchData);
-    }
+    };
+
     return (
         <div>
             <AsyncPaginate
@@ -41,4 +43,6 @@ const Search = ({onSearchChange}) => {
     );
 };
 
-export default Search;
+Search.propTypes = {
+    onSearchChange: PropTypes.func
+};
