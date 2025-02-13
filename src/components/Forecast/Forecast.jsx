@@ -20,9 +20,9 @@ const Forecast = ({ data }) => {
             <Accordion allowZeroExpanded>
                 {data.list.slice(0, 7).map((item, idx) => (
                     <AccordionWeatherItem
-                    key={idx}
-                    day={forecastDays[idx]}
-                    item={item}
+                        key={idx}
+                        day={forecastDays[idx]}
+                        item={item}
                     />
                 ))}
             </Accordion>

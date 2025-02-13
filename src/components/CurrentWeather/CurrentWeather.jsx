@@ -1,7 +1,14 @@
 import PropTypes from 'prop-types';
 
+const CurrentWeather = ({ data }) => {
 
-const CurrentWeather = ({data}) => {
+    const weatherDetails = {
+        'Feels like': `${Math.round(data.main.feels_like)}°C`,
+        'Wind': `${data.wind.speed} m/s`,
+        'Humidity': `${data.main.humidity}%`,
+        'Pressure': `${data.main.pressure} hPa`,
+    };
+
     return (
         <div className="weather w-[300px] rounded-md shadow-xl text-white bg-[#333] mx-auto mt-10 px-5 pr-5 pt-0">
             <div className="top flex justify-between items-center">
@@ -11,32 +18,29 @@ const CurrentWeather = ({data}) => {
                 </div>
                 <img className="weather-icon w-[100px]" src={`/icons/${data.weather[0].icon}.png`} alt="weather" />
             </div>
+
             <div className="bottom flex justify-between items-center">
                 <p className="temperature font-semibold text-[50px] w-auto my-3 mx-0">{Math.round(data.main.temp)}°C</p>
-                <div className="details w-full pl-5 pb-5">
-                    <div className="parameter-row flex justify-between">
-                        <span className="parameter-label border-b mb-2 text-left text-[12px] font-normal">Details</span>
-                    </div>
-                    <div className="parameter-row flex justify-between">
-                        <span className="parameter-label text-left text-[12px] font-normal">Feels like</span>
-                        <span className="parameter-value text-right font-semibold text-[12px]">{Math.round(data.main.feels_like)}°C</span>
-                    </div>
-                    <div className="parameter-row flex justify-between">
-                        <span className="parameter-label text-left text-[12px] font-normal">Wind</span>
-                        <span className="parameter-value text-right font-semibold text-[12px]">{data.wind.speed} m/s</span>
-                    </div>
-                    <div className="parameter-row flex justify-between">
-                        <span className="parameter-label text-left text-[12px] font-normal">Humidity</span>
-                        <span className="parameter-value text-right font-semibold text-[12px]">{data.main.humidity}%</span>
-                    </div>
-                    <div className="parameter-pressure flex justify-between">
-                        <span className="parameter-label text-left text-[12px] font-normal">Pressure</span>
-                        <span className="parameter-value text-right font-semibold text-[12px]">{data.main.pressure} hPa</span>
-                    </div>
-                </div>
+                <WeatherDetails details={weatherDetails}/>
             </div>
         </div>
     );
+};
+
+const WeatherDetails = ({ details }) => {
+    return (
+        <div className="details w-full pl-5 pb-5">
+            <div className="parameter-row flex justify-between">
+                <span className="parameter-label border-b mb-2 text-left text-[12px] font-normal">Details</span>
+            </div>
+            {Object.entries(details).map(([label, value]) => (
+                <div className="parameter-row flex justify-between" key={label}>
+                    <span className="parameter-label text-left text-[12px] font-normal">{label}</span>
+                    <span className="parameter-value text-right font-semibold text-[12px]">{value}</span>
+                </div>
+            ))}
+    </div>
+    )
 };
 
 CurrentWeather.propTypes = {
@@ -58,6 +62,10 @@ CurrentWeather.propTypes = {
             speed: PropTypes.number.isRequired
         }).isRequired
     }).isRequired
+};
+
+WeatherDetails.propTypes = {
+    details: PropTypes.object
 };
 
 export default CurrentWeather;
