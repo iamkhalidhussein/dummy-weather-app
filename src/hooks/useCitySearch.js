@@ -1,4 +1,4 @@
-import { GEO_API_URL, geoApiOptions } from '@/components/search/api.js';
+import { GEO_API_URL, geoApiOptions } from '@/apis/api.js';
 
 const useCitySearch = () => {
     const loadOptions = async (inputValue) => {
