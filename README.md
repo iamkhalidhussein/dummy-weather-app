@@ -15,8 +15,22 @@ Weather App is a simple and intuitive application that provides current weather 
 - CSS (Tailwind CSS)
 - OpenWeatherMap API
 
-## Installation
+## Folder Structure
+📦 weather-app
+├── 📂 public         # Static assets (favicons, images, etc.)
+├── 📂 src            # Main source code
+│   ├── 📂 components  # Reusable UI components (search, forecast, etc.)
+│   ├── 📂 apis        # Open weather apis
+│   ├── 📂 hooks       # Layout of the application
+│   ├── App.tsx       # Entry point
+│   ├── main.tsx      # Main application component
+├── 📜 package.json    # Project dependencies and scripts
+├── 📜 README.md       # Project documentation
+├── 📜 tsconfig.json   # TypeScript configuration
+└── 📜 .gitignore      # Files to ignore in Git
 
+## Installation
+```bash
 1. Clone the repository:
 git clone https://github.com/iamkhalidhussein/dummy-weather-app
 
@@ -37,19 +51,19 @@ VTIE_WEATHER_API_KEY = "840250e9429a7c759828d872aafcfab6";
 
 5. Start the development server:
 pnpm dev
-
+```
 
 ## Usage
-
-1. Open your browser and go to `http://localhost:3000`.
+```bash
+1. Open your browser and go to `http://localhost:5173`.
 2. Enter the name of a city in the search bar.
 3. Click on the search button to retrieve the current weather and forecast data.
 4. View detailed weather information displayed in a user-friendly format.
-
+```
 ## Contributing
 
 Contributions are welcome! If you would like to contribute to this project, please follow these steps:
-
+```bash
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix:
 git checkout -b feature/YourFeatureName
@@ -61,7 +75,7 @@ git commit -m "Add some feature"
 git push origin feature/YourFeatureName
 
 5. Open a pull request.
-
+```
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
