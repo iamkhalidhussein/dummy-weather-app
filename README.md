@@ -16,6 +16,8 @@ Weather App is a simple and intuitive application that provides current weather 
 - OpenWeatherMap API
 
 ## Folder Structure
+
+```js
 📦 weather-app
 ├── 📂 public         # Static assets (favicons, images, etc.)
 ├── 📂 src            # Main source code
@@ -28,9 +30,11 @@ Weather App is a simple and intuitive application that provides current weather 
 ├── 📜 README.md       # Project documentation
 ├── 📜 tsconfig.json   # TypeScript configuration
 └── 📜 .gitignore      # Files to ignore in Git
+```
 
 ## Installation
-```bash
+
+```js
 1. Clone the repository:
 git clone https://github.com/iamkhalidhussein/dummy-weather-app
 
@@ -54,7 +58,8 @@ pnpm dev
 ```
 
 ## Usage
-```bash
+
+```js
 1. Open your browser and go to `http://localhost:5173`.
 2. Enter the name of a city in the search bar.
 3. Click on the search button to retrieve the current weather and forecast data.
@@ -63,7 +68,8 @@ pnpm dev
 ## Contributing
 
 Contributions are welcome! If you would like to contribute to this project, please follow these steps:
-```bash
+
+```js
 1. Fork the repository.
 2. Create a new branch for your feature or bug fix:
 git checkout -b feature/YourFeatureName
